@@ -1,28 +1,37 @@
 package com.jaccounts.erp.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.jaccounts.erp.model.Login;
 
 
 @Controller
 public class AccountsController {
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/getDetails", method = RequestMethod.GET)
-	@ResponseBody
-	public String home(HttpServletRequest request) {
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView  home(HttpServletRequest request) {
 		
-		return "home";
+		ModelAndView model = new ModelAndView();
+		model.setViewName("login");
+		return model;
+	}
+	
+	
+	@RequestMapping(value = "/loginSubmit", method = RequestMethod.POST)
+	public ModelAndView  home(HttpServletRequest request,@ModelAttribute("login")Login login) {
+		System.out.println("username is - "+login.getUsername());
+		System.out.println("password is - "+login.getPassword());
+		ModelAndView model = new ModelAndView();
+		model.addObject("username", login.getUsername());
+		model.setViewName("landingpage");
+		return model;
 	}
 
 }
