@@ -1,7 +1,10 @@
 package com.jaccounts.erp.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jaccounts.erp.dao.CustomerDao;
 import com.jaccounts.erp.dao.UserDao;
 import com.jaccounts.erp.model.Login;
 
@@ -18,6 +22,9 @@ public class AccountsController {
 
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	CustomerDao customerDao;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView  home(HttpServletRequest request) {
@@ -34,11 +41,23 @@ public class AccountsController {
 		System.out.println("password is - "+login.getPassword());
 		
 		
-		int loginstatus = userDao.loginCheck(login.getUsername(), login.getPassword());
+		int loginstatus = 0;
+		//userDao.loginCheck(login.getUsername(), login.getPassword());
+		
+		ModelAndView model = new ModelAndView();
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			model.addObject("customerList", mapper.writeValueAsString(customerDao.getCustomerByValue()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		
 		System.out.println("------->"+loginstatus);
 		
-		ModelAndView model = new ModelAndView();
+		
 		if (loginstatus==0) {
 			model.addObject("username", login.getUsername());
 			model.setViewName("landingpage");

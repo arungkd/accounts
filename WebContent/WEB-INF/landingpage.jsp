@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,6 +7,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Accounts - Landing Page</title>
+
+	<!-- DataTables -->
+  <link rel="stylesheet" href="/accounts/resources/plugins/datatables/dataTables.bootstrap4.css">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/accounts/resources/plugins/font-awesome/css/font-awesome.min.css">
@@ -87,84 +91,65 @@
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Customer Details</h1>
+            <h1>Customer Search</h1>
           </div>
-        </div><!-- /.row -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Data Tables</li> -->
+            </ol>
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-					
-      		<div class="row">
-          <!-- left column -->
-          <!--  <div class="col-md-8"> --> <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Customer Form</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form:form action="saveCustomer" method="post" modelAttribute="customers">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="customername">Customer Name</label>
-                    <input type="text" class="form-control" id="customername" placeholder="Enter customer name">
-                  </div>
-                  <div class="form-group">
-                    <label for="CompanyName">Company Name</label>
-                    <input type="text" class="form-control" id="companyname" placeholder="Enter Company Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="CompanyContacNumber">Contact Number</label>
-                    <input type="text" class="form-control" id="contactnumber" placeholder="Enter Contact Number">
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="CompanyEmail">Email Address</label>
-                    <input type="email" class="form-control" id="emailid" placeholder="Enter Email Id">
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="CompanyAddress">Company Address</label>
-                    <input type="text" class="form-control" id="companyaddress" placeholder="Enter Company Address">
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="gstnumber">GST Number</label>
-                    <input type="text" class="form-control" id="gstnumber" placeholder="Enter GST Number">
-                  </div>
-                  
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form:form>  
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Hover Data Table</h3>
             </div>
-            <!-- /.card -->
-
+            <!-- /.card-header -->
+            <div class="card-body">
+              
+            <table id="customerSearch">
+            	<thead>
+            		<tr>
+            			<td>Company Name</td>
+            			<td>Contact Number</td>
+            		</tr>
+            	</thead>
+            </table>  
+              
+              
+            </div>
+            <!-- /.card-body -->
           </div>
-         
+          <!-- /.card -->
+
+          
         </div>
-            
-      </div><!--/. container-fluid -->
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
+  
+
+  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -207,5 +192,26 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="/accounts/resources/js/pages/dashboard2.js"></script>
+
+<!-- DataTables -->
+<script src="/accounts/resources/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/accounts/resources/plugins/datatables/dataTables.bootstrap4.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+var data =eval('${customerList}');
+var table = $('#customerSearch').DataTable( {
+"aaData": data,
+"aoColumns": [
+{ "mData": "companyName"},
+{ "mData": "contactNumber"}
+]
+});
+});
+</script>
+
+'${customerList}'
+
 </body>
 </html>

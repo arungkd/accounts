@@ -1,0 +1,99 @@
+CREATE TABLE `spares` (
+	`spareid` int NOT NULL AUTO_INCREMENT,
+	`sparename` varchar(50) NOT NULL,
+	`spareunit` varchar(10) NOT NULL,
+	`sparedescription` varchar(50) NOT NULL,
+	`spareprice` FLOAT NOT NULL,
+	`sparestock` int NOT NULL,
+	PRIMARY KEY (`spareid`)
+);
+
+CREATE TABLE `customer` (
+	`customerid` int NOT NULL AUTO_INCREMENT,
+	`customername` varchar(50) NOT NULL,
+	`companyname` varchar(50) NOT NULL,
+	`contactnumber` varchar(13) NOT NULL,
+	`emailid` varchar(50),
+	`address` varchar(50),
+	`pannumber` varchar(15),
+	`GSTnumber` varchar(20),
+	PRIMARY KEY (`customerid`)
+);
+
+CREATE TABLE `supplierMaster` (
+	`supplierid` int NOT NULL AUTO_INCREMENT,
+	`suppliername` varchar(25) NOT NULL,
+	`supplieraddress` varchar(50) NOT NULL,
+	`supplieremail` varchar(50) NOT NULL,
+	`supplierphone` varchar(12) NOT NULL,
+	`supplierGST` int(15) NOT NULL,
+	PRIMARY KEY (`supplierid`)
+);
+
+CREATE TABLE `shopMaster` (
+	`shopId` bigint NOT NULL AUTO_INCREMENT,
+	`shopName` varchar(50) NOT NULL,
+	`shopAddress1` varchar(50) NOT NULL,
+	`shopAddress2` varchar(50) NOT NULL,
+	`TINNumber` varchar(50) NOT NULL,
+	`GSTNumber` varchar(50) NOT NULL,
+	`shopPhone` int(13) NOT NULL,
+	PRIMARY KEY (`shopId`)
+);
+
+CREATE TABLE `sparePurchaseLedger` (
+	`sparePurchaseLedgerId` int NOT NULL AUTO_INCREMENT,
+	`supplierid` int NOT NULL,
+	`spareId` int NOT NULL,
+	`supplierQuantity` FLOAT NOT NULL,
+	`suppliedDate` DATE NOT NULL,
+	PRIMARY KEY (`sparePurchaseLedgerId`)
+);
+
+CREATE TABLE `spareSalesLedger` (
+	`ledgerId` int NOT NULL AUTO_INCREMENT,
+	`customerId` int NOT NULL,
+	`billNumber` int NOT NULL,
+	`billDate` DATE NOT NULL,
+	`billType` varchar(10) NOT NULL,
+	`billTime` TIME NOT NULL,
+	`billTotalAmount` FLOAT NOT NULL,
+	`billCGSTAmount` FLOAT NOT NULL,
+	`billSGSTAmount` FLOAT NOT NULL,
+	`billGrandTotal` FLOAT NOT NULL,
+	PRIMARY KEY (`ledgerId`)
+);
+
+CREATE TABLE `spareSalesLedgerTransaction` (
+	`spareSalesLedgerTransactionid` int NOT NULL AUTO_INCREMENT,
+	`ledgerId` int NOT NULL,
+	`spareid` int NOT NULL,
+	`spareName` varchar(50) NOT NULL,
+	`spareUnitOfMeasure` varchar(20) NOT NULL,
+	`spareQuantity` int NOT NULL,
+	`spareRate` FLOAT NOT NULL,
+	`spareAmount` FLOAT NOT NULL,
+	PRIMARY KEY (`spareSalesLedgerTransactionid`)
+);
+
+CREATE TABLE `customerAmountTransaction` (
+	`customerAmountTransactionId` int NOT NULL AUTO_INCREMENT,
+	`customerId` int NOT NULL,
+	`customerAmountCredit` FLOAT NOT NULL,
+	`customerOpeningBalance` FLOAT NOT NULL,
+	`customerClosingBalance` FLOAT NOT NULL,
+	`customerCurrentBalance` FLOAT NOT NULL,
+	PRIMARY KEY (`customerAmountTransactionId`)
+);
+
+ALTER TABLE `sparePurchaseLedger` ADD CONSTRAINT `sparePurchaseLedger_fk0` FOREIGN KEY (`supplierid`) REFERENCES `supplierMaster`(`supplierid`);
+
+ALTER TABLE `sparePurchaseLedger` ADD CONSTRAINT `sparePurchaseLedger_fk1` FOREIGN KEY (`spareId`) REFERENCES `spares`(`spareid`);
+
+ALTER TABLE `spareSalesLedger` ADD CONSTRAINT `spareSalesLedger_fk0` FOREIGN KEY (`customerId`) REFERENCES `customer`(`customerid`);
+
+ALTER TABLE `spareSalesLedgerTransaction` ADD CONSTRAINT `spareSalesLedgerTransaction_fk0` FOREIGN KEY (`ledgerId`) REFERENCES `spareSalesLedger`(`ledgerId`);
+
+ALTER TABLE `spareSalesLedgerTransaction` ADD CONSTRAINT `spareSalesLedgerTransaction_fk1` FOREIGN KEY (`spareid`) REFERENCES `spares`(`spareid`);
+
+ALTER TABLE `customerAmountTransaction` ADD CONSTRAINT `customerAmountTransaction_fk0` FOREIGN KEY (`customerId`) REFERENCES `customer`(`customerid`);
