@@ -32,4 +32,6 @@
       <beans:property name="suffix" value=".jsp" />
    </beans:bean>
 
+	<beans:bean id="userDao" class="com.jaccounts.erp.dao.UserDao"/>
+	<beans:bean id="customerDao" class="com.jaccounts.erp.dao.CustomerDao"/>
 </beans:beans>
