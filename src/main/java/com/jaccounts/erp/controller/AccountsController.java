@@ -30,7 +30,7 @@ public class AccountsController {
 	public ModelAndView  home(HttpServletRequest request) {
 		
 		ModelAndView model = new ModelAndView();
-		model.setViewName("login");
+		model.setViewName("loginPage");
 		return model;
 	}
 	
@@ -58,15 +58,16 @@ public class AccountsController {
 		System.out.println("------->"+loginstatus);
 		
 		
-		if (loginstatus==0) {
+		/*if (loginstatus==0) {
 			model.addObject("username", login.getUsername());
-			model.setViewName("landingpage");
+			model.setViewName("landinglayout");
 		} else  {
 			model.addObject("username", login.getUsername());
 			model.setViewName("login");
-		}
+		}*/
 		
-		
+		model.addObject("username", login.getUsername());
+		model.setViewName("landinglayout");
 		
 		return model;
 	}

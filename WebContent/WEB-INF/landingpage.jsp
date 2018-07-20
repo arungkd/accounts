@@ -1,14 +1,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>  
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-  <title>Accounts - Landing Page</title>
-
-	<!-- DataTables -->
+  	<!-- DataTables -->
   <link rel="stylesheet" href="/accounts/resources/plugins/datatables/dataTables.bootstrap4.css">
 
   <!-- Font Awesome Icons -->
@@ -17,154 +15,13 @@
   <link rel="stylesheet" href="/accounts/resources/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  <tiles:insertAttribute name="header" />	
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-      </li>
-      
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-  
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <!-- <img src="dist/img/AdminLTELogo.png" alt="Accounts" class="brand-image img-circle elevation-3"
-           style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">Accounts</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="/accounts/resources/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">welcome, ${username}</a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          
-          
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-edit"></i>
-              <p>
-                DC
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-arrow-circle-right nav-icon"></i>
-                  <p>Create</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-arrow-circle-right nav-icon"></i>
-                  <p>Edit</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Customer Search</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Tables</li> -->
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Hover Data Table</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              
-            <table id="customerSearch">
-            	<thead>
-            		<tr>
-            			<td>Company Name</td>
-            			<td>Contact Number</td>
-            		</tr>
-            	</thead>
-            </table>  
-              
-              
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-
-          
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  
-
-  
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-sm-none d-md-block">
-      contactus @ dharmalingham email
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Dharmalingham Weavings</a>.</strong> All rights reserved.
-  </footer>
+  <tiles:insertAttribute name="menu" />	
+  <tiles:insertAttribute name="body" />	
 </div>
 <!-- ./wrapper -->
 
@@ -214,4 +71,5 @@ var table = $('#customerSearch').DataTable( {
 '${customerList}'
 
 </body>
+<tiles:insertAttribute name="footer" ignore="true" />	
 </html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+<tiles-definitions>  
+
+	<definition name="loginbase.definition"  
+        template="/WEB-INF/login.jsp">   
+        <put-attribute name="header" value="" />  
+        <put-attribute name="menu" value="" />  
+        <put-attribute name="body" value="" />  
+        <put-attribute name="footer" value="" />  
+    </definition>
+  
+  	<definition name="loginPage" extends="loginbase.definition"/>  
+    
+    <definition name="base.definition"  
+        template="/WEB-INF/landingpage.jsp">   
+        <put-attribute name="header" value="" />  
+        <put-attribute name="menu" value="/WEB-INF/menu.jsp" />  
+        <put-attribute name="body" value="" />  
+        <put-attribute name="footer" value="/WEB-INF/footer.jsp" />  
+    </definition>  
+    
+    <definition name="landinglayout" extends="base.definition">  
+        <put-attribute name="header" value="/WEB-INF/landingheader.jsp" />   
+        <put-attribute name="body" value="/WEB-INF/landingbody.jsp" />  
+    </definition>  
+  
+  
+</tiles-definitions>  
