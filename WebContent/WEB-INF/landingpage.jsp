@@ -14,62 +14,45 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="/accounts/resources/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="/accounts/resources/font/fontcss.css" rel="stylesheet">
   
+  <!-- REQUIRED SCRIPTS -->
+	<!-- jQuery -->
+	<script src="/accounts/resources/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/accounts/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="/accounts/resources/js/adminlte.js"></script>
+	
+	<!-- OPTIONAL SCRIPTS -->
+	<script src="/accounts/resources/js/demo.js"></script>
+	
+	<!-- PAGE PLUGINS -->
+	<!-- SparkLine -->
+	<script src="/accounts/resources/plugins/sparkline/jquery.sparkline.min.js"></script>
+	<!-- jVectorMap -->
+	<script src="/accounts/resources/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="/accounts/resources/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<!-- SlimScroll 1.3.0 -->
+	<script src="/accounts/resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+	<!-- ChartJS 1.0.2 -->
+	<script src="/accounts/resources/plugins/chartjs-old/Chart.min.js"></script>
+	
+	<!-- PAGE SCRIPTS -->
+	<script src="/accounts/resources/js/pages/dashboard2.js"></script>
+	
+	<!-- DataTables -->
+<script src="/accounts/resources/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/accounts/resources/plugins/datatables/dataTables.bootstrap4.js"></script>
+	
   <tiles:insertAttribute name="header" />	
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <tiles:insertAttribute name="menu" />	
-  <tiles:insertAttribute name="body" />	
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="/accounts/resources/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="/accounts/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/accounts/resources/js/adminlte.js"></script>
-
-<!-- OPTIONAL SCRIPTS -->
-<script src="/accounts/resources/js/demo.js"></script>
-
-<!-- PAGE PLUGINS -->
-<!-- SparkLine -->
-<script src="/accounts/resources/plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- jVectorMap -->
-<script src="/accounts/resources/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/accounts/resources/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll 1.3.0 -->
-<script src="/accounts/resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS 1.0.2 -->
-<script src="/accounts/resources/plugins/chartjs-old/Chart.min.js"></script>
-
-<!-- PAGE SCRIPTS -->
-<script src="/accounts/resources/js/pages/dashboard2.js"></script>
-
-<!-- DataTables -->
-<script src="/accounts/resources/plugins/datatables/jquery.dataTables.js"></script>
-<script src="/accounts/resources/plugins/datatables/dataTables.bootstrap4.js"></script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-var data =eval('${customerList}');
-var table = $('#customerSearch').DataTable( {
-"aaData": data,
-"aoColumns": [
-{ "mData": "companyName"},
-{ "mData": "contactNumber"}
-]
-});
-});
-</script>
-
-'${customerList}'
-
+	<div class="wrapper">
+	  <tiles:insertAttribute name="menu" />	
+	  <tiles:insertAttribute name="body" />	
+	</div>
+	<!-- ./wrapper -->
 </body>
-<tiles:insertAttribute name="footer" ignore="true" />	
+<tiles:insertAttribute name="footer"/>	
 </html>

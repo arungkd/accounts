@@ -27,28 +27,14 @@
                with font-awesome or any other icon font library -->
           
           
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-edit"></i>
+          <li class="nav-item">
+            <a href="/accounts/loginSubmit" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
               <p>
-                DC
-                <i class="right fa fa-angle-left"></i>
+                Customer
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-arrow-circle-right nav-icon"></i>
-                  <p>Create</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-arrow-circle-right nav-icon"></i>
-                  <p>Edit</p>
-                </a>
-              </li>
-            </ul>
+            
           </li>
         </ul>
       </nav>

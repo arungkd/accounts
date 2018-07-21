@@ -19,6 +19,11 @@ public class CustomerDao {
 	String customerInsert = "insert into customer (customername,companyname,contactnumber,emailid,address,pannumber,GSTnumber) "
 			+ "values(?,?,?,?,?,?,?)";
 
+	private String selectCustomerById = "SELECT * FROM CUSTOMER WHERE CUSTOMERID=?";
+	
+	private String updateCustomerDetailsQuery = "UPDATE CUSTOMER SET CUSTOMERNAME=?,COMPANYNAME = ?, "
+			+ "CONTACTNUMBER =?, EMAILID =?, ADDRESS =?, PANNUMBER = ?, GSTNUMBER =? WHERE CUSTOMERID=?";
+	
 	public int saveCustomer(Customer customer) {
 
 		logger.debug("Going to save custmer details " + customer);
@@ -26,8 +31,8 @@ public class CustomerDao {
 		// int value = jdbcTemplate.update(customerInsert);
 
 		int value = jdbcTemplate.update(customerInsert,
-				new Object[] { customer.getCustomerName(), customer.getCompanyName(), customer.getContactNumber(),
-						customer.getEmailId(), customer.getAddress(), "", customer.getGSTNumber() });
+				new Object[] { customer.getCustomername(), customer.getCompanyname(), customer.getContactnumber(),
+						customer.getEmailid(), customer.getAddress(), "", customer.getGSTnumber() });
 
 		logger.debug("Executed results = " + value);
 
@@ -41,5 +46,18 @@ public class CustomerDao {
 		System.out.println(customerList.toString());
 		
 		return customerList;
+	}
+
+	public Customer getCustomerDetailsById(int customerid) {
+		Customer customer = (Customer) jdbcTemplate.queryForObject(selectCustomerById,new Object[] {customerid}, new BeanPropertyRowMapper(Customer.class));
+		return customer;
+	}
+
+	public int updateCustomerDetails(Customer customer) {
+		int value = jdbcTemplate.update(updateCustomerDetailsQuery, 
+				new Object[] { customer.getCustomername(), customer.getCompanyname(), customer.getContactnumber(),
+						customer.getEmailid(), customer.getAddress(), "", customer.getGSTnumber(), customer.getCustomerid() });
+		
+		return value;
 	}
 }

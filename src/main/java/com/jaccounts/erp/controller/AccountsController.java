@@ -37,9 +37,6 @@ public class AccountsController {
 	
 	@RequestMapping(value = "/loginSubmit", method = RequestMethod.POST)
 	public ModelAndView  home(HttpServletRequest request,@ModelAttribute("login")Login login) {
-		System.out.println("username is - "+login.getUsername());
-		System.out.println("password is - "+login.getPassword());
-		
 		
 		int loginstatus = 0;
 		//userDao.loginCheck(login.getUsername(), login.getPassword());

@@ -2,66 +2,77 @@ package com.jaccounts.erp.pojo;
 
 public class Customer {
 
-	private int customerId;
-	private String customerName;
-	private String companyName;
-	private String contactNumber;
-	private String emailId;
+	private int customerid;
+	private String customername;
+	private String companyname;
+	private String contactnumber;
+	private String emailid;
 	private String address;
-	private String panNumber;
-	private String GSTNumber;
-	public int getCustomerId() {
-		return customerId;
+	private String pannumber;
+	private String GSTnumber;
+
+	public int getCustomerid() {
+		return customerid;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
 	}
-	public String getCustomerName() {
-		return customerName;
+
+	public String getCustomername() {
+		return customername;
 	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+
+	public void setCustomername(String customername) {
+		this.customername = customername;
 	}
-	public String getCompanyName() {
-		return companyName;
+
+	public String getCompanyname() {
+		return companyname;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
-	public String getContactNumber() {
-		return contactNumber;
+
+	public String getContactnumber() {
+		return contactnumber;
 	}
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
+
+	public void setContactnumber(String contactnumber) {
+		this.contactnumber = contactnumber;
 	}
-	public String getEmailId() {
-		return emailId;
+
+	public String getEmailid() {
+		return emailid;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getPanNumber() {
-		return panNumber;
+
+	public String getPannumber() {
+		return pannumber;
 	}
-	public void setPanNumber(String panNumber) {
-		this.panNumber = panNumber;
+
+	public void setPannumber(String pannumber) {
+		this.pannumber = pannumber;
 	}
-	public String getGSTNumber() {
-		return GSTNumber;
+
+	public String getGSTnumber() {
+		return GSTnumber;
 	}
-	public void setGSTNumber(String gSTNumber) {
-		GSTNumber = gSTNumber;
+
+	public void setGSTnumber(String gSTnumber) {
+		GSTnumber = gSTnumber;
 	}
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", companyName=" + companyName
-				+ ", contactNumber=" + contactNumber + ", emailId=" + emailId + ", address=" + address + ", panNumber="
-				+ panNumber + ", GSTNumber=" + GSTNumber + "]";
-	}
+
 }
