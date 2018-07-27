@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
-<!DOCTYPE tiles-definitions PUBLIC  
+ <!DOCTYPE tiles-definitions PUBLIC  
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
        "/WEB-INF/classes/tiles-config_3_0.dtd">
 <tiles-definitions>
@@ -23,12 +23,32 @@
 	</definition>
 
 	<definition name="customerSave" extends="base.definition">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/customerSave.jsp" />
+		<put-attribute name="header" value="/WEB-INF/landingheader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customerSave.jsp" />
 	</definition>
 	
 	<definition name="landingpage" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/landingbody.jsp"/>
+	</definition>
+	
+	<definition name="sparesSearch" extends="base.definition">
+		<put-attribute name="header" value="/WEB-INF/landingheader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/spares/sparesSearch.jsp"/>
+	</definition>
+
+	<definition name="sparesSave" extends="base.definition">
+		<put-attribute name="header" value="/WEB-INF/landingheader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/spares/sparesSave.jsp"/>
+	</definition>
+	
+	<definition name="supplierSearch" extends="base.definition">
+		<put-attribute name="header" value="/WEB-INF/landingheader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/supplier/supplierSearch.jsp"/>
+	</definition>
+
+	<definition name="supplierSave" extends="base.definition">
+		<put-attribute name="header" value="/WEB-INF/landingheader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/supplier/supplierSave.jsp"/>
 	</definition>
 
 </tiles-definitions>  

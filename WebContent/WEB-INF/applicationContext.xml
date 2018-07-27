@@ -34,6 +34,8 @@
 
 	<beans:bean id="userDao" class="com.jaccounts.erp.dao.UserDao"/>
 	<beans:bean id="customerDao" class="com.jaccounts.erp.dao.CustomerDao"/>
+	<beans:bean id="sparesDao" class="com.jaccounts.erp.dao.SparesDao"/>
+	<beans:bean id="supplierDao" class="com.jaccounts.erp.dao.SupplierDao"/>
 	
 	<beans:bean id="viewResolver"  
         class="org.springframework.web.servlet.view.UrlBasedViewResolver">  

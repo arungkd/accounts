@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -20,6 +22,7 @@
         </div>
       </div>
 
+	<form:form method="post" action="" id="menuForm">
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -28,7 +31,7 @@
           
           
           <li class="nav-item">
-            <a href="/accounts/loginSubmit" class="nav-link">
+            <a href="javascript:callPage('/accounts/loginSubmit')" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Customer
@@ -36,9 +39,60 @@
             </a>
             
           </li>
+          <li class="nav-item">
+            <a href="javascript:callPage('/accounts/searchSpares')" class="nav-link">
+              <i class="nav-icon fa fa-wrench"></i>
+              <p>
+                Spares
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item">
+            <a href="javascript:callPage('/accounts/searchSupplier')" class="nav-link">
+              <i class="nav-icon fa fa-plane"></i>
+              <p>
+                Supplier
+              </p>
+            </a>
+            
+          </li>
+          
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+                Bill
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="javascript:callPage('/accounts/newBill')" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>New Bill</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Purchase Return</p>
+                </a>
+              </li>              
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
+     </form:form> 
     </div>
     <!-- /.sidebar -->
   </aside>
+  
+  
+<script>
+function callPage(a){
+	$('#menuForm').attr('action',a);
+	$('#menuForm').submit();
+}
+</script>
