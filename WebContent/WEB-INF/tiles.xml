@@ -51,4 +51,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/supplier/supplierSave.jsp"/>
 	</definition>
 
+	<definition name="newBill" extends="base.definition">
+		<put-attribute name="header" value="/WEB-INF/landingheader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/newbill/newbill.jsp"/>
+	</definition>
+
 </tiles-definitions>  

@@ -60,7 +60,7 @@
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-pie-chart"></i>
+              <i class="nav-icon fa fa-credit-card"></i>
               <p>
                 Bill
                 <i class="right fa fa-angle-left"></i>
@@ -69,8 +69,8 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="javascript:callPage('/accounts/newBill')" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>New Bill</p>
+                  <i class="fa fa-money"></i>
+                  <p> New Bill</p>
                 </a>
               </li>
               <li class="nav-item">

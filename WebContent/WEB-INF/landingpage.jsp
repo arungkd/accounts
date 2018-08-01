@@ -11,6 +11,9 @@
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/accounts/resources/plugins/font-awesome/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  
   <!-- Theme style -->
   <link rel="stylesheet" href="/accounts/resources/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -18,7 +21,11 @@
   
   <!-- REQUIRED SCRIPTS -->
 	<!-- jQuery -->
-	<script src="/accounts/resources/plugins/jquery/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	
+	<!-- jQuery UI -->
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	
 	<!-- Bootstrap -->
 	<script src="/accounts/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- AdminLTE App -->
@@ -42,8 +49,12 @@
 	<script src="/accounts/resources/js/pages/dashboard2.js"></script>
 	
 	<!-- DataTables -->
-<script src="/accounts/resources/plugins/datatables/jquery.dataTables.js"></script>
-<script src="/accounts/resources/plugins/datatables/dataTables.bootstrap4.js"></script>
+	<script src="/accounts/resources/plugins/datatables/jquery.dataTables.js"></script>
+	<script src="/accounts/resources/plugins/datatables/dataTables.bootstrap4.js"></script>
+	
+	<!-- Select combo box -->
+	<script src="/accounts/resources/plugins/select2/select2.full.min.js"></script>
+	<link rel="stylesheet" href="/accounts/resources/plugins/select2/select2.min.css">
 	
   <tiles:insertAttribute name="header" />	
 </head>
